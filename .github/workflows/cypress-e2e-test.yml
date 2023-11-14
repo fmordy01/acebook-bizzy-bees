@@ -9,7 +9,10 @@ jobs:
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
       - name: Install Dependencies
-        run: npm install && brew tap mongodb/brew && brew install mongodb-community@5.0
+        run: |
+          npm install
+          brew tap mongodb/brew
+          brew install mongodb-community@5.0
 
       - name: Start MongoDB service
         run: brew services start mongodb-community@5.0
