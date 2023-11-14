@@ -11,7 +11,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
-          sudo apt-get install -y mongodb-community=5.0
+          sudo apt-get install -y mongodb-org
 
       - name: Start MongoDB service
         run: sudo service mongod start
