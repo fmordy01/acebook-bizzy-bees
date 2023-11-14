@@ -15,13 +15,6 @@ jobs:
       # and run all Cypress tests
       - name: Install Dependencies
         run: npm install
-          # sudo apt-get install gnupg curl
-          # curl -fsSL https://pgp.mongodb.com/server-5.0.asc | \
-          #   sudo gpg -o /usr/share/keyrings/mongodb-server-5.0.gpg \
-          #   --dearmor
-          # echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-5.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
-          # sudo apt-get update
-          # sudo apt-get install -y mongodb-org
 
       - name: Start MongoDB service
         run: sudo service mongod start
@@ -29,7 +22,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          # build: npm run build
           start: npm run start:test
           wait-on: http://localhost:3030
           
