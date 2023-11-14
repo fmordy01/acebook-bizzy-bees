@@ -11,10 +11,10 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
-          apt-get install -y mongodb-community=5.0
+          sudo apt-get install -y mongodb-community=5.0
 
       - name: Start MongoDB service
-        run: service mongod start
+        run: sudo service mongod start
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
