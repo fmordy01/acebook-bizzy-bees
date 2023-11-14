@@ -11,11 +11,10 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
-          brew tap mongodb/brew
-          brew install mongodb-community@5.0
+          apt-get install -y mongodb-community=5.0
 
       - name: Start MongoDB service
-        run: brew services start mongodb-community@5.0
+        run: service mongod start
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
