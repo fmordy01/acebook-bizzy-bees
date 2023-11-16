@@ -35,13 +35,13 @@ jobs:
             --deployment-group-name Production \
             --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip) 
 
-          DEPLOYMENT_ID=$(echo "$DEPLOYMENT_OUTPUT" | jq -r '.deploymentId') 
+          DEPLOYMENT_ID=$(echo "$DEPLOYMENT_OUTPUT" | jq -r '.deploymentId') \
 
-          echo "Deployment ID is after extracting: $DEPLOYMENT_ID"
+          echo "Deployment ID is after extracting: $DEPLOYMENT_ID" \
           
-          DEPLOYMENT_ID=${{ steps.extract_deployment_id.outputs.deployment_id }}
+          DEPLOYMENT_ID=${{ steps.extract_deployment_id.outputs.deployment_id }} \
 
-          echo "Deployment ID is after extracting: $DEPLOYMENT_ID"
+          echo "Deployment ID is after extracting: $DEPLOYMENT_ID" \
 
           aws deploy wait deployment-successful \
             --deployment-id $DEPLOYMENT_ID \
