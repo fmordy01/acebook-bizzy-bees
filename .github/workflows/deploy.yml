@@ -30,10 +30,12 @@ jobs:
 
       - name: Deploy to EC2 via AWS CodeDeploy
         run: |
+          echo "This is the deployment: $DEPLOYMENT_ID" \
           aws deploy create-deployment \
             --application-name bizzy-bees-acebook \
-            --deployment-group-name Production \
-            --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip  
+            --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip \
+            --deployment-group-name Production 
+          
 
 
           aws deploy wait deployment-successful \
