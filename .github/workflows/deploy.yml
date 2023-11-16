@@ -33,7 +33,7 @@ jobs:
           aws deploy create-deployment \
             --application-name bizzy-bees-acebook \
             --deployment-group-name Production \
-            --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip \ 
+            --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip  
 
 
           aws deploy wait deployment-successful \
