@@ -33,7 +33,7 @@ jobs:
           DEPLOYMENT_OUTPUT=$(aws deploy create-deployment \
             --application-name bizzy-bees-acebook \
             --deployment-group-name Production \
-            --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip) 
+            --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip) \ 
 
           DEPLOYMENT_ID=$(echo "$DEPLOYMENT_OUTPUT" | jq -r '.deploymentId') \
 
