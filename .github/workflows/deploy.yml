@@ -39,9 +39,6 @@ jobs:
 
           echo "Deployment ID is after extracting: $DEPLOYMENT_ID" \
           
-          DEPLOYMENT_ID=${{ steps.extract_deployment_id.outputs.deployment_id }} \
-
-          echo "Deployment ID is after extracting: $DEPLOYMENT_ID" \
 
           aws deploy wait deployment-successful \
             --deployment-id $DEPLOYMENT_ID \
