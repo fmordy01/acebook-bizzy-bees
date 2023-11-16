@@ -24,3 +24,19 @@ jobs:
 
       - name: Deploy to S3
         run: aws s3 sync . s3://bizzy-bees-bucket/
+
+      - name: Deploy to EC2 via AWS CodeDeploy
+        run: |
+          aws deploy create-deployment \
+            --application-name bizzy-bees-acebook \
+            --deployment-group-name Production \
+            --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip 
+
+      - name: Monitor CodeDeploy Deployment
+        run: |
+          aws deploy wait deployment-successful \
+            --deployment-id $DEPLOYMENT_ID \
+            --region eu-west-2
+          
+        env:
+          AWS_DEFAULT_REGION: eu-west-2
