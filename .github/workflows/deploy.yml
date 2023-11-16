@@ -37,7 +37,7 @@ jobs:
 
           DEPLOYMENT_ID=$(echo "$DEPLOYMENT_OUTPUT" | jq -r '.deploymentId') \
 
-          echo "Deployment ID is: $DEPLOYMENT_ID" \
+          echo "Deployment ID is this: $DEPLOYMENT_ID" \
           
 
           aws deploy wait deployment-successful \
