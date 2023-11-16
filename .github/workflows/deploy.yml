@@ -22,11 +22,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.MYAWSSECRET_KEY }}
           aws-region: eu-west-2
   
-      - name: Build and Zip the application
-        run: |
-          npm install 
-          npm run build
-          zip -r bizzy-bees-acebook.zip ./build/
+      - name: Zip the application
+        run: zip -r bizzy-bees-acebook.zip .
       
       - name: Deploy to S3
         run: aws s3 cp bizzy-bees-acebook.zip s3://bizzy-bees-bucket/
