@@ -30,17 +30,9 @@ jobs:
 
       - name: Deploy to EC2 via AWS CodeDeploy
         run: |
-          echo "This is the deployment: $POTATO" \
           aws deploy create-deployment \
             --application-name bizzy-bees-acebook \
             --deployment-group-name Production \
-            --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip 
-          
-
-
-          aws deploy wait deployment-successful \
-            --deployment-id $DEPLOYMENT_ID \
+            --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip \
             --region eu-west-2
-          
-        env:
-          AWS_DEFAULT_REGION: eu-west-2
+
