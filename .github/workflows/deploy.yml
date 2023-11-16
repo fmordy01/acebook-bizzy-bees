@@ -35,7 +35,7 @@ jobs:
       - name: Monitor CodeDeploy Deployment
         run: |
           aws deploy wait deployment-successful \
-            --deployment-id $DEPLOYMENT_ID \
+            --deployment-id $deploymentId \
             --region eu-west-2
           
         env:
