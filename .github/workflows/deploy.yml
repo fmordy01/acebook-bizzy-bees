@@ -36,15 +36,8 @@ jobs:
             --s3-location bucket=bizzy-bees-bucket,key=bizzy-bees-acebook.zip,bundleType=zip) 
 
           DEPLOYMENT_ID=$(echo "$DEPLOYMENT_OUTPUT" | jq -r '.deploymentId') 
-          
-          echo "::set-output name=deployment_id::$DEPLOYMENT_ID"
 
-          echo "Deployment ID is in deploy stage: $DEPLOYMENT_ID"
-
-      - name: Monitor CodeDeploy Deployment
-        run: |
-          
-          echo "Deployment ID is before extracting: $DEPLOYMENT_ID"
+          echo "Deployment ID is after extracting: $DEPLOYMENT_ID"
           
           DEPLOYMENT_ID=${{ steps.extract_deployment_id.outputs.deployment_id }}
 
