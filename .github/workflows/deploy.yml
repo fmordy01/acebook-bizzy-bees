@@ -30,7 +30,7 @@ jobs:
 
       - name: Deploy to EC2 via AWS CodeDeploy
         run: |
-          echo "This is the deployment: $DEPLOYMENT_ID" \
+          echo "This is the deployment: $POTATO" \
           aws deploy create-deployment \
             --application-name bizzy-bees-acebook \
             --deployment-group-name Production \
