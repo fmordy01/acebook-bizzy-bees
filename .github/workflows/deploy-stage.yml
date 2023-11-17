@@ -12,18 +12,15 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-access-key-id: ${{ secrets.MYAWSACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.MYAWSSECRET_KEY }}
           aws-region: eu-west-2
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Start MongoDB service
-        run: sudo service mongod start
 
       - name: Zip the application
         run: zip -r bizzy-bees-acebook.zip .
