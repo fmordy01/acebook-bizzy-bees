@@ -1,1 +1,2 @@
-echo "change permissions.sh"
+#!/bin/bash
+echo "No permissions need changing... maybe?"

@@ -1,1 +1,2 @@
-echo "create test.sh"
+#!/bin/bash
+echo "Creating test db... how?"

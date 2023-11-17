@@ -1,1 +1,3 @@
-echo "start server.sh"
+#!/bin/bash
+echo "Starting test server"
+npm run start:test
